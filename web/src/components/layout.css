@@ -7,27 +7,23 @@
   color: #f0f2f5;
   display: flex;
   align-items: center;
-  background: black !important;
+  background: var(--dark-color) !important;
 }
 
 #footer {
   text-align: center;
-  height: 60px;
-  padding: 20px;
+  height: 70px;
   position: absolute !important;
   bottom: 0 !important;
   width: 100% !important;
-  background: var(--secondary-color) !important;
-}
-
-#copyright {
-  color: black;
+  background: var(--tertiary-color) !important;
+  color: white;
 }
 
 #content {
-  background: var(--dark-color);
-  min-height: calc(100%-60px) !important;
-  padding-bottom: 60px !important;
+  background: var(--light-color);
+  min-height: calc(100%-70px) !important;
+  padding-bottom: 70px !important;
   margin-top: auto !important;
   position: relative !important;
   display: flex !important;
@@ -39,8 +35,9 @@
 }
 
 #logo {
+  font-weight: bold;
   color: white;
-  margin-top: 5px;
+  font-size: xx-large;
 }
 
 #dropdown-button {

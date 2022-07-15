@@ -1,7 +1,6 @@
 import { Server } from 'http';
 
-import { db } from './repositories/db';
-import { connectRedis, disconnectRedis } from './repositories/redis';
+import { db } from './db';
 import { useApp } from './express';
 import { initSocket, closeSocket } from './websocket';
 
@@ -12,15 +11,13 @@ const gracefulShutdown = async () => {
   await closeSocket();
   await httpServer.close();
   await db.disconnectDb();
-  await disconnectRedis();
 }
 
 const start = async () => {
   try {
     const port = 8080;
     
-    await db.connectDb();
-    await connectRedis();
+    await db.connectDb()
     const app = await useApp();
     
     // start the Express server
