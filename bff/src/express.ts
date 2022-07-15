@@ -28,7 +28,6 @@ export const useApp = async () => {
       // API paths.
       /^\/api\/(v\d+\/)?auth\/login/,
       /^\/api\/(v\d+\/)?auth\/register/,
-      /^\/api\/(v\d+\/)?canvas/,
     ]
   }));
   app.use((req: Request, res, next) => {
@@ -55,11 +54,9 @@ export const useApp = async () => {
     if (error.name === 'UnauthorizedError') {
       next(new ApiError(Errors.UNAUTHORIZED));
     } else if (error instanceof ValidationError) {
-      next(new ApiError(Errors.INVALID_REQUEST, error.validationErrors));
-    } else if (!(error instanceof ApiError)) {
-      next(new ApiError(Errors.API));
+      next(new ApiError(Errors.INVALID_REQUEST, error.validationErrors))
     } else {
-      next(error);
+      next(new ApiError(Errors.API));
     }
   });
 

@@ -1,13 +1,12 @@
-import { Button, Dropdown, Layout, Menu, Typography } from 'antd';
+import { Button, Dropdown, Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../services/auth';
 import './layout.css';
+import { useNavigate } from 'react-router-dom';
 
 const { Header, Content, Footer } = Layout;
-const { Title } = Typography;
 
 export default function GlobalLayout({ children, login }: any) {
   const { t } = useTranslation();
@@ -18,7 +17,7 @@ export default function GlobalLayout({ children, login }: any) {
     <Layout id='layout'>
       <Header id='header'>
         <a style={{height: '100%'}} href='/dashboard'>
-          <Title id='logo'>Every Place</Title>
+          <h1 id='logo'>LOGO</h1>
         </a>
         {!login && (auth.loggedIn?
           <Dropdown overlay={<Menu
@@ -50,7 +49,7 @@ export default function GlobalLayout({ children, login }: any) {
         </div>
       </Content>
       <Footer id='footer'>
-        <Title level={5} id='copyright'>Christian Daga ©2022</Title>
+        Christian Daga ©2022
       </Footer>
     </Layout>
   );
